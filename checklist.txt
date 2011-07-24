@@ -1,0 +1,9 @@
+All help pages should be accessible from the help icon.
+
+Conky should be visible in the lower middle part of the screen.
+
+Conky should display the correct edition and version number.
+
+The desktop should have the standard Swift Linux background for ROX.
+
+There should be icons for file manager, help, control, terminal, search, apps, Synaptic, Browser, Sylpheed, Video, Music, Leafpad, Geany, AbiWord, and Gnumeric
