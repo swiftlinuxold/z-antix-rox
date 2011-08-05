@@ -14,5 +14,5 @@ then
   exec rox -p=
 else  
   touch "/tmp/ROX_PANEL_VISIBLE"
-  exec rox -p=swift
+  exec rox -p=swift-ice
 fi

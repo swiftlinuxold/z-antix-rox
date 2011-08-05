@@ -41,4 +41,14 @@ else
 	chown demo:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift-ice
 fi
 
+echo "Replacing pinboardtoggle.sh"
+SH_TO_COPY=$DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh
+rm /usr/local/bin/pinboardtoggle.sh
+cp $DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh /usr/local/bin
+if [ $IS_CHROOT -eq 0 ]; then
+chown $USERNAME:users /usr/local/bin/pinboardtoggle.sh
+else
+chown demo:users /usr/local/bin/pinboardtoggle.sh
+fi
+
 exit 0
