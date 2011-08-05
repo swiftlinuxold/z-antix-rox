@@ -29,16 +29,16 @@ PB_TO_COPY=$DIR_DEVELOP/rox/ROX-Filer/pb_swift-diet
 echo "Replacing the pb_* file"
 if [ $IS_CHROOT -eq 0 ]; then
 	rm /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb*
-	cp $PB_TO_COPY /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_swift-ice
-	chown $USERNAME:users /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_swift-ice
+	cp $PB_TO_COPY /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_swift
+	chown $USERNAME:users /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_swift
 fi
 
 rm /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb*
-cp $PB_TO_COPY /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift-ice
+cp $PB_TO_COPY /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift
 if [ $IS_CHROOT -eq 0 ]; then
-	chown $USERNAME:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift-ice
+	chown $USERNAME:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift
 else
-	chown demo:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift-ice
+	chown demo:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift
 fi
 
 echo "Replacing pinboardtoggle.sh"
