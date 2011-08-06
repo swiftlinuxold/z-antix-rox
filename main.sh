@@ -29,26 +29,34 @@ PB_TO_COPY=$DIR_DEVELOP/rox/ROX-Filer/pb_swift-diet
 echo "Replacing the pb_* file"
 if [ $IS_CHROOT -eq 0 ]; then
 	rm /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb*
-	cp $PB_TO_COPY /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_swift
-	chown $USERNAME:users /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_swift
+	cp $PB_TO_COPY /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_antiX-ice
+	chown $USERNAME:users /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_antiX-ice
 fi
 
 rm /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb*
-cp $PB_TO_COPY /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift
+cp $PB_TO_COPY /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_antiX-ice
 if [ $IS_CHROOT -eq 0 ]; then
-	chown $USERNAME:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift
+	chown $USERNAME:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_antiX-ice
 else
-	chown demo:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_swift
+	chown demo:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_antiX-ice
 fi
 
-echo "Replacing pinboardtoggle.sh"
-SH_TO_COPY=$DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh
-rm /usr/local/bin/pinboardtoggle.sh
-cp $DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh /usr/local/bin
-if [ $IS_CHROOT -eq 0 ]; then
-chown $USERNAME:users /usr/local/bin/pinboardtoggle.sh
-else
-chown demo:users /usr/local/bin/pinboardtoggle.sh
+# The file /usr/share/antiX-install/icewm/pb_antiX-ice only exists in the chroot setup.
+if [ $IS_CHROOT -eq 1 ]; then
+	rm /usr/share/antiX-install/icewm/pb_antiX-ice
+	cp $PB_TO_COPY /usr/share/antiX-install/icewm/pb_antiX-ice
+	chown demo:users /usr/share/antiX-install/icewm/pb_antiX-ice
 fi
+
+
+#echo "Replacing pinboardtoggle.sh"
+#SH_TO_COPY=$DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh
+#rm /usr/local/bin/pinboardtoggle.sh
+#cp $DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh /usr/local/bin
+#if [ $IS_CHROOT -eq 0 ]; then
+#chown $USERNAME:users /usr/local/bin/pinboardtoggle.sh
+#else
+#chown demo:users /usr/local/bin/pinboardtoggle.sh
+#fi
 
 exit 0
