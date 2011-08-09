@@ -41,22 +41,14 @@ else
 	chown demo:users /etc/skel/.config/rox.sourceforge.net/ROX-Filer/pb_antiX-ice
 fi
 
-# The file /usr/share/antiX-install/icewm/pb_antiX-ice only exists in the chroot setup.
+# The file /usr/share/antiX-install/icewm/pb_antiX-ice exists in the chroot setup.
+# /usr/share/antiX-install/icewm/pb_antiX-ice MUST be revised, because this is automatically
+# copied to /home/$USERNAME/.config/rox.sourceforge.net/ROX-Filer/pb_antiX-ice during
+# installation.
 if [ $IS_CHROOT -eq 1 ]; then
 	rm /usr/share/antiX-install/icewm/pb_antiX-ice
 	cp $PB_TO_COPY /usr/share/antiX-install/icewm/pb_antiX-ice
 	chown demo:users /usr/share/antiX-install/icewm/pb_antiX-ice
 fi
-
-
-#echo "Replacing pinboardtoggle.sh"
-#SH_TO_COPY=$DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh
-#rm /usr/local/bin/pinboardtoggle.sh
-#cp $DIR_DEVELOP/rox/usr_local_bin/pinboardtoggle.sh /usr/local/bin
-#if [ $IS_CHROOT -eq 0 ]; then
-#chown $USERNAME:users /usr/local/bin/pinboardtoggle.sh
-#else
-#chown demo:users /usr/local/bin/pinboardtoggle.sh
-#fi
 
 exit 0
